@@ -1,11 +1,12 @@
 #Proyecto de n8n-whattap business
 
-#Recursos utilizados
+#RECURSOS UTILIZADOS
   n8n-supabase-api OPEN IA
   Gmail contraseña de gmail aplicaciones
   Whattap Business
 
-  #Intrucciones
+  #INTRUCCIONES
+  
     # SISTEMA DE RESERVA DE VEHÍCULOS - WHATSAPP BUSINESS
     
     ## FLUJO DEL CLIENTE
