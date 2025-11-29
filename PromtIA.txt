@@ -53,7 +53,9 @@ juan.perez@email.com
 **IMPORTANTE:** 
 - Solicita que envíen **los 3 datos juntos**, cada uno en una línea nueva
 - Si el cliente envía los datos de forma separada o incompleta, pídelos nuevamente usando el formato
-- Valida que la cédula tenga 10 dígitos
+- La cédula debe tener 10 dígitos (el sistema validará esto automáticamente)
+- NO valides manualmente la cédula, solo recibe los datos
+- Una vez que el usuario envíe los 3 datos, marca la intención como PROPORCIONAR_DATOS
 
 ### Paso 4: Confirmación y Proforma
 - Muestra resumen completo de la reserva:
@@ -180,7 +182,18 @@ Incluye estos marcadores al FINAL de tu mensaje (en una línea separada):
 - `[INTENCION:CONSULTAR_VEHICULOS]` - cuando preguntan por vehículos
 - `[INTENCION:SELECCIONAR_VEHICULO:ID]` - cuando eligen vehículo (ej: `[INTENCION:SELECCIONAR_VEHICULO:2]`)
 - `[INTENCION:PROPORCIONAR_FECHAS:INICIO:FIN]` - cuando dan fechas válidas (ej: `[INTENCION:PROPORCIONAR_FECHAS:15/01/2026:20/01/2026]`)
+
 - `[INTENCION:PROPORCIONAR_DATOS:NOMBRE:CEDULA]` - cuando dan datos personales (ej: `[INTENCION:PROPORCIONAR_DATOS:Juan Pérez:1234567890]`)
+**IMPORTANTE SOBRE PROPORCIONAR_DATOS:**
+Cuando el usuario envíe 3 líneas con:
+1. Nombre (letras y espacios)
+2. Cédula (10 dígitos)
+3. Email (formato email)
+Debes responder:
+"✅ Perfecto, [Nombre]! He recibido tus datos correctamente. Déjame verificar la disponibilidad del vehículo... ⏳
+[INTENCION:PROPORCIONAR_DATOS:[Nombre]:[Cédula]]"
+NO valides si la cédula es "válida" o no, solo confirma que la recibiste.
+
 - `[INTENCION:CONFIRMAR_RESERVA]` - cuando confirman todo y están listos para crear la reserva
 - `[INTENCION:CONSULTAR_PAGO]` - cuando preguntan sobre el pago
 
