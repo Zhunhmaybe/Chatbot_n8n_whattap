@@ -1,0 +1,1 @@
+=SELECT v.id, v.nombre, v.precio_dia, COUNT(r.id) as reservas FROM vehiculos v LEFT JOIN reservas r ON v.id = r.vehiculo_id AND r.estado = 'confirmada' AND ((r.fecha_inicio BETWEEN '{{ $json.fechaInicio }}' AND '{{ $json.fechaFin }}') OR (r.fecha_fin BETWEEN '{{ $json.fechaInicio }}' AND '{{ $json.fechaFin }}')) WHERE v.id = {{ $json.vehicleId }} GROUP BY v.id
